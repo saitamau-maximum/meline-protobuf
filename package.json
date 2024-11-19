@@ -1,0 +1,15 @@
+{
+  "type": "module",
+  "scripts": {
+    "update:proto": "buf dep update",
+    "build:proto": "buf generate",
+    "build:swagger": "swagger-cli bundle -o docs/swagger.json gen/proto/*.json",
+    "build": "npm run build:proto && npm run build:swagger",
+    "serve": "serve -s docs"
+  },
+  "devDependencies": {
+    "@bufbuild/buf": "^1.47.2",
+    "serve": "^14.2.4",
+    "swagger-cli": "^4.0.4"
+  }
+}
