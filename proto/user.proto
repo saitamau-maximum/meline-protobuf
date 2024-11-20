@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package meline;
 
-option go_package = "github.com/saitamau-maximum/meline/proto/user";
+option go_package = "github.com/saitamau-maximum/meline/proto";
 
 import "google/api/annotations.proto";
 

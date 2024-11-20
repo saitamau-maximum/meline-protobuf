@@ -1,4 +1,8 @@
 version: v2
 plugins:
   - local: protoc-gen-openapiv2
-    out: gen
+    out: gen/openapi
+  - local: protoc-gen-es
+    out: gen/es
+  - local: protoc-gen-go
+    out: gen/go
