@@ -21,6 +21,14 @@ go install github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-openapiv2@latest
 npm install -g pnpm
 ```
 
+### 依存関係の更新
+
+`google/api/annotations.proto`等を利用できるようにするためbuild前に依存関係の更新をしてください。
+
+```bash
+pnpm update:proto
+```
+
 ### ビルド
 
 ```bash
