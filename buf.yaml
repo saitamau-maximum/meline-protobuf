@@ -1,3 +1,11 @@
 version: v2
 deps:
   - buf.build/googleapis/googleapis
+modules:
+  - path: proto
+    excludes:
+      - proto/base
+      - proto/schema
+  - path: proto/base
+  - path: proto/schema/request
+  - path: proto/schema/response
