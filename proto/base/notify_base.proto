@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package base;
+
+option go_package = "github.com/saitamau-maximum/meline/proto/base";
+
+import "message_base.proto";
+
+message NotifyMeta {
+    int64 type_id = 1;
+}
+
+message Payload {
+    Message message = 1;
+    uint64 channel_id = 2;
+}
