@@ -1,0 +1,111 @@
+syntax = "proto3";
+
+package meline;
+
+option go_package = "github.com/saitamau-maximum/meline/proto";
+
+import "google/api/annotations.proto";
+import "channel_request.proto";
+import "channel_response.proto";
+import "message_request.proto";
+import "message_response.proto";
+import "user_request.proto";
+import "user_response.proto";
+import "notify_request.proto";
+import "notify_response.proto";
+
+service ChannelService {
+    rpc GetAllChannels (request.GetAllChannelsRequest) returns (response.GetAllChannelsResponse) {
+        option (google.api.http) = {
+            get : "/channels"
+        };
+    }
+    rpc GetChannelByID (request.GetChannelByIDRequest) returns (response.GetChannelByIDResponse) {
+        option (google.api.http) = {
+            get : "/channels/{id}"
+        };
+    }
+    rpc JoinChannel (request.JoinChannelRequest) returns (response.JoinChannelResponse) {
+        option (google.api.http) = {
+            post : "/channels/{id}/join"
+            body : "*"
+        };
+    }
+    rpc CreateChannel (request.CreateChannelRequest) returns (response.CreateChannelResponse) {
+        option (google.api.http) = {
+            post : "/channels"
+            body : "*"
+        };
+    }
+    rpc CreateChildChannel (request.CreateChildChannelRequest) returns (response.CreateChildChannelResponse) {
+        option (google.api.http) = {
+            post : "/channels/{id}/create"
+            body : "*"
+        };
+    }
+    rpc UpdateChannel (request.UpdateChannelRequest) returns (response.UpdateChannelResponse) {
+        option (google.api.http) = {
+            put : "/channels/{id}"
+            body : "*"
+        };
+    }
+    rpc DeleteChannel (request.DeleteChannelRequest) returns (response.DeleteChannelResponse) {
+        option (google.api.http) = {
+            delete : "/channels/{id}"
+        };
+    }
+    rpc LeaveChannel (request.LeaveChannelRequest) returns (response.LeaveChannelResponse) {
+        option (google.api.http) = {
+            post : "/channels/{id}/leave"
+            body : "*"
+        };
+    }
+}
+
+service MessageService {
+    rpc GetByChannelID(request.GetByChannelIDRequest) returns (response.GetByChannelIDResponse) {
+        option (google.api.http) = {
+            get : "/{channel_id}/messages"
+        };
+    }
+    rpc Create(request.CreateMessageRequest) returns (response.CreateMessageResponse) {
+        option (google.api.http) = {
+            post : "/{channel_id}/messages"
+            body : "*"
+        };
+    }
+    rpc CreateReply(request.CreateReplyMessageRequest) returns (response.CreateReplyMessageResponse) {
+        option (google.api.http) = {
+            post : "/{channel_id}/messages/{id}/reply"
+            body : "*"
+        };
+    }
+    rpc Update(request.UpdateMessageRequest) returns (response.UpdateMessageResponse) {
+        option (google.api.http) = {
+            put : "/{channel_id}/messages/{id}"
+            body : "*"
+        };
+    }
+    rpc Delete(request.DeleteMessageRequest) returns (response.DeleteMessageResponse) {
+        option (google.api.http) = {
+            delete : "/{channel_id}/messages/{id}"
+        };
+    }
+}
+
+service UserService {
+    rpc Me(request.UserMeRequest) returns (response.UserMeResponse) {
+      option (google.api.http) = {
+        get : "/users/me"
+      };
+    }
+}
+
+service NotifyService {
+    rpc Notify(request.NotifyRequest) returns (response.NotifyResponse) {
+      option (google.api.http) = {
+          post : "/ws/notify"
+          body : "*"
+      };
+  }
+}
