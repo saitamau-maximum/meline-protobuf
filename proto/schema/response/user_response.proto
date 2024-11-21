@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package response;
+
+option go_package = "github.com/saitamau-maximum/meline/proto/schema/request";
+
+message UserMeResponse {
+    int32 id = 1;
+    string name = 2;
+    string image_url = 3;
+}

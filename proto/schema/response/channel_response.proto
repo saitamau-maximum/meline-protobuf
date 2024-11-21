@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package response;
+
+option go_package = "github.com/saitamau-maximum/meline/proto/schema/request";
+
+import "channel_base.proto";
+
+message GetAllChannelsResponse {
+    repeated base.Channel channels = 1;
+}
+
+message GetChannelByIDResponse {
+    base.ChannelDetail channel = 1;
+}
+
+message JoinChannelResponse {}
+
+message CreateChannelResponse {}
+
+message CreateChildChannelResponse {}
+
+message UpdateChannelResponse {}
+
+message DeleteChannelResponse {}
+
+message LeaveChannelResponse {}
