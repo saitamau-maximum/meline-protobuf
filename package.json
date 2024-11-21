@@ -3,7 +3,7 @@
   "scripts": {
     "update:proto": "buf dep update",
     "build:proto": "buf generate",
-    "build:swagger": "swagger-cli bundle -o docs/swagger.json gen/openapi/proto/*.json",
+    "build:swagger": "swagger-cli bundle -o docs/swagger.json gen/openapi/proto/api.swagger.json",
     "build": "npm run build:proto && npm run build:swagger",
     "serve": "serve -s docs"
   },
