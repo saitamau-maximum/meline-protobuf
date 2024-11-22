@@ -1,7 +1,7 @@
 syntax = "proto3";
 
-package request;
+package schema.request;
 
-option go_package = "github.com/saitamau-maximum/meline/proto/schema/request";
+option go_package = "schema/request";
 
 message NotifyRequest {}

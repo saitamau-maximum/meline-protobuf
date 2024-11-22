@@ -1,8 +1,8 @@
 syntax = "proto3";
 
-package response;
+package schema.response;
 
-option go_package = "github.com/saitamau-maximum/meline/proto/schema/request";
+option go_package = "schema/response";
 
 message UserMeResponse {
     int32 id = 1;

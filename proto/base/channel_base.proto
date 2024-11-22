@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package base;
 
-option go_package = "github.com/saitamau-maximum/meline/proto/base";
+option go_package = "base";
 
 import "user_base.proto";
 
