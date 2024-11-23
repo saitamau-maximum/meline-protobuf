@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package schema.response;
+
+option go_package = "schema/response";
+
+message UserMeResponse {
+    int32 id = 1;
+    string name = 2;
+    string image_url = 3;
+}

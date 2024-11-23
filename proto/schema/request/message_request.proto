@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package schema.request;
+
+option go_package = "schema/request";
+
+message GetByChannelIDRequest {
+    uint64 channel_id = 1;
+}
+
+message CreateMessageRequest {
+    uint64 channel_id = 1;
+    string content = 2;
+}
+
+message CreateReplyMessageRequest {
+    uint64 channel_id = 1;
+    uint64 id = 2;
+    string content = 3;
+}
+
+message UpdateMessageRequest {
+    uint64 channel_id = 1;
+    uint64 id = 2;
+    string content = 3;
+}
+
+message DeleteMessageRequest {
+    uint64 channel_id = 1;
+    uint64 id = 2;
+}

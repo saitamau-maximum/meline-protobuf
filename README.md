@@ -21,6 +21,24 @@ go install github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-openapiv2@latest
 npm install -g pnpm
 ```
 
+### 依存関係の更新
+
+`google/api/annotations.proto`等を利用できるようにするためbuild前に依存関係の更新をしてください。
+
+```bash
+pnpm update:proto
+```
+
+また、protobuf-gen ライブラリとして protoc-gen-openapiv2 と protoc-gen-go が必要です。
+を利用しているため、そのインストールが必要です。
+
+Go環境がある場合はとても簡単です。
+
+```bash
+go install github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-openapiv2@latest  
+go install google.golang.org/protobuf/cmd/protoc-gen-go@latest  
+```
+
 ### ビルド
 
 ```bash

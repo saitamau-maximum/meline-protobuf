@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package schema.response;
+
+option go_package = "schema/response";
+
+import "message_base.proto";
+
+message GetByChannelIDResponse {
+    repeated base.Message messages = 1;
+}
+
+message CreateMessageResponse {}
+
+message CreateReplyMessageResponse {}
+
+message UpdateMessageResponse {}
+
+message DeleteMessageResponse {}

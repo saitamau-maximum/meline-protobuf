@@ -1,8 +1,15 @@
 version: v2
+managed:
+  enabled: true
+  override:
+    - file_option: go_package_prefix
+      value: github.com/saitamau-maximum/meline/proto
 plugins:
   - local: protoc-gen-openapiv2
-    out: gen/openapi
+    out: gen/openapi/proto
   - local: protoc-gen-es
     out: gen/es
   - local: protoc-gen-go
     out: gen/go
+    opt: 
+      - paths=source_relative

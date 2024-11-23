@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package schema.response;
+
+option go_package = "schema/response";
+
+import "notify_base.proto";
+
+message NotifyResponse {
+    base.NotifyMeta notify_meta = 1;
+    base.Payload payload = 2;
+}
