@@ -5,14 +5,14 @@ package meline;
 option go_package = "proto";
 
 import "google/api/annotations.proto";
-import "channel_request.proto";
-import "channel_response.proto";
-import "message_request.proto";
-import "message_response.proto";
-import "user_request.proto";
-import "user_response.proto";
-import "notify_request.proto";
-import "notify_response.proto";
+import "schema/request/channel_request.proto";
+import "schema/response/channel_response.proto";
+import "schema/request/message_request.proto";
+import "schema/response/message_response.proto";
+import "schema/request/user_request.proto";
+import "schema/response/user_response.proto";
+import "schema/request/notify_request.proto";
+import "schema/response/notify_response.proto";
 
 service ChannelService {
     rpc GetAllChannels (schema.request.GetAllChannelsRequest) returns (schema.response.GetAllChannelsResponse) {

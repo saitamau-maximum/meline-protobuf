@@ -4,7 +4,7 @@ package base;
 
 option go_package = "base";
 
-import "message_base.proto";
+import "base/message_base.proto";
 
 message NotifyMeta {
     int64 type_id = 1;

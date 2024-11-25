@@ -4,7 +4,7 @@ package schema.response;
 
 option go_package = "schema/response";
 
-import "message_base.proto";
+import "base/message_base.proto";
 
 message GetByChannelIDResponse {
     repeated base.Message messages = 1;
