@@ -4,7 +4,7 @@ package base;
 
 option go_package = "base";
 
-import "user_base.proto";
+import "base/user_base.proto";
 
 message Message {
     string id = 1;
