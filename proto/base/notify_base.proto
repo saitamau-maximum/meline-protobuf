@@ -12,5 +12,5 @@ message NotifyMeta {
 
 message Payload {
     Message message = 1;
-    uint64 channel_id = 2;
+    uint32 channel_id = 2;
 }

@@ -5,7 +5,7 @@ package base;
 option go_package = "base";
 
 message User {
-    uint64 id = 1;
+    uint32 id = 1;
     string name = 2;
     string image_url = 3;
 }
