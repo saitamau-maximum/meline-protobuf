@@ -7,12 +7,12 @@ option go_package = "base";
 import "base/user_base.proto";
 
 message Channel {
-    uint32 id = 1;
+    string id = 1;
     string name = 2;
 }
 
 message ChannelDetail {
-    uint32 id = 1;
+    string id = 1;
     string name = 2;
     repeated User users = 3;
     repeated Channel channels = 4;
