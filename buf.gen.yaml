@@ -3,7 +3,10 @@ managed:
   enabled: true
   override:
     - file_option: go_package_prefix
-      value: github.com/saitamau-maximum/meline/proto
+      value: github.com/saitamau-maximum/meline/generated/proto
+  disable:
+    - file_option: go_package_prefix
+      module: buf.build/googleapis/googleapis
 plugins:
   - local: protoc-gen-openapiv2
     out: gen/openapi/proto
