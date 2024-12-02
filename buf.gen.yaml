@@ -3,7 +3,7 @@ managed:
   enabled: true
   override:
     - file_option: go_package_prefix
-      value: github.com/saitamau-maximum/meline/generated/proto
+      value: github.com/saitamau-maximum/meline/generated/proto/go
   disable:
     - file_option: go_package_prefix
       module: buf.build/googleapis/googleapis
