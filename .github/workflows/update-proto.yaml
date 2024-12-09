@@ -9,7 +9,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        repository: [meline]
+        repository: [meline-client, meline-server]
     steps:
       - name: Generate token for proto
         id: generate_token
