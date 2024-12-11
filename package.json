@@ -5,6 +5,8 @@
     "build:proto": "buf generate",
     "build:swagger": "swagger-cli bundle -o docs/swagger.json gen/openapi/proto/api.swagger.json",
     "build": "npm run build:proto && npm run build:swagger",
+    "fix": "buf format -w",
+    "check": "buf format --exit-code",
     "serve": "serve -s docs"
   },
   "devDependencies": {

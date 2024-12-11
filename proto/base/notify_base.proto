@@ -2,15 +2,15 @@ syntax = "proto3";
 
 package base;
 
-option go_package = "base";
-
 import "base/message_base.proto";
 
+option go_package = "base";
+
 message NotifyMeta {
-    int64 type_id = 1;
+  int64 type_id = 1;
 }
 
 message Payload {
-    Message message = 1;
-    string channel_id = 2;
+  Message message = 1;
+  string channel_id = 2;
 }

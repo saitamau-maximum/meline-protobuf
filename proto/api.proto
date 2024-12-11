@@ -2,110 +2,98 @@ syntax = "proto3";
 
 package meline;
 
-option go_package = "proto";
-
 import "google/api/annotations.proto";
 import "schema/request/channel_request.proto";
-import "schema/response/channel_response.proto";
 import "schema/request/message_request.proto";
-import "schema/response/message_response.proto";
-import "schema/request/user_request.proto";
-import "schema/response/user_response.proto";
 import "schema/request/notify_request.proto";
+import "schema/request/user_request.proto";
+import "schema/response/channel_response.proto";
+import "schema/response/message_response.proto";
 import "schema/response/notify_response.proto";
+import "schema/response/user_response.proto";
+
+option go_package = "proto";
 
 service ChannelService {
-    rpc GetAllChannels (schema.request.GetAllChannelsRequest) returns (schema.response.GetAllChannelsResponse) {
-        option (google.api.http) = {
-            get : "/channels"
-        };
-    }
-    rpc GetChannelByID (schema.request.GetChannelByIDRequest) returns (schema.response.GetChannelByIDResponse) {
-        option (google.api.http) = {
-            get : "/channels/{id}"
-        };
-    }
-    rpc JoinChannel (schema.request.JoinChannelRequest) returns (schema.response.JoinChannelResponse) {
-        option (google.api.http) = {
-            post : "/channels/{id}/join"
-            body : "*"
-        };
-    }
-    rpc CreateChannel (schema.request.CreateChannelRequest) returns (schema.response.CreateChannelResponse) {
-        option (google.api.http) = {
-            post : "/channels"
-            body : "*"
-        };
-    }
-    rpc CreateChildChannel (schema.request.CreateChildChannelRequest) returns (schema.response.CreateChildChannelResponse) {
-        option (google.api.http) = {
-            post : "/channels/{id}/create"
-            body : "*"
-        };
-    }
-    rpc UpdateChannel (schema.request.UpdateChannelRequest) returns (schema.response.UpdateChannelResponse) {
-        option (google.api.http) = {
-            put : "/channels/{id}"
-            body : "*"
-        };
-    }
-    rpc DeleteChannel (schema.request.DeleteChannelRequest) returns (schema.response.DeleteChannelResponse) {
-        option (google.api.http) = {
-            delete : "/channels/{id}"
-        };
-    }
-    rpc LeaveChannel (schema.request.LeaveChannelRequest) returns (schema.response.LeaveChannelResponse) {
-        option (google.api.http) = {
-            post : "/channels/{id}/leave"
-            body : "*"
-        };
-    }
+  rpc GetAllChannels(schema.request.GetAllChannelsRequest) returns (schema.response.GetAllChannelsResponse) {
+    option (google.api.http) = {get: "/channels"};
+  }
+  rpc GetChannelByID(schema.request.GetChannelByIDRequest) returns (schema.response.GetChannelByIDResponse) {
+    option (google.api.http) = {get: "/channels/{id}"};
+  }
+  rpc JoinChannel(schema.request.JoinChannelRequest) returns (schema.response.JoinChannelResponse) {
+    option (google.api.http) = {
+      post: "/channels/{id}/join"
+      body: "*"
+    };
+  }
+  rpc CreateChannel(schema.request.CreateChannelRequest) returns (schema.response.CreateChannelResponse) {
+    option (google.api.http) = {
+      post: "/channels"
+      body: "*"
+    };
+  }
+  rpc CreateChildChannel(schema.request.CreateChildChannelRequest) returns (schema.response.CreateChildChannelResponse) {
+    option (google.api.http) = {
+      post: "/channels/{id}/create"
+      body: "*"
+    };
+  }
+  rpc UpdateChannel(schema.request.UpdateChannelRequest) returns (schema.response.UpdateChannelResponse) {
+    option (google.api.http) = {
+      put: "/channels/{id}"
+      body: "*"
+    };
+  }
+  rpc DeleteChannel(schema.request.DeleteChannelRequest) returns (schema.response.DeleteChannelResponse) {
+    option (google.api.http) = {delete: "/channels/{id}"};
+  }
+  rpc LeaveChannel(schema.request.LeaveChannelRequest) returns (schema.response.LeaveChannelResponse) {
+    option (google.api.http) = {
+      post: "/channels/{id}/leave"
+      body: "*"
+    };
+  }
 }
 
 service MessageService {
-    rpc GetByChannelID(schema.request.GetByChannelIDRequest) returns (schema.response.GetByChannelIDResponse) {
-        option (google.api.http) = {
-            get : "/{channel_id}/messages"
-        };
-    }
-    rpc Create(schema.request.CreateMessageRequest) returns (schema.response.CreateMessageResponse) {
-        option (google.api.http) = {
-            post : "/{channel_id}/messages"
-            body : "*"
-        };
-    }
-    rpc CreateReply(schema.request.CreateReplyMessageRequest) returns (schema.response.CreateReplyMessageResponse) {
-        option (google.api.http) = {
-            post : "/{channel_id}/messages/{id}/reply"
-            body : "*"
-        };
-    }
-    rpc Update(schema.request.UpdateMessageRequest) returns (schema.response.UpdateMessageResponse) {
-        option (google.api.http) = {
-            put : "/{channel_id}/messages/{id}"
-            body : "*"
-        };
-    }
-    rpc Delete(schema.request.DeleteMessageRequest) returns (schema.response.DeleteMessageResponse) {
-        option (google.api.http) = {
-            delete : "/{channel_id}/messages/{id}"
-        };
-    }
+  rpc GetByChannelID(schema.request.GetByChannelIDRequest) returns (schema.response.GetByChannelIDResponse) {
+    option (google.api.http) = {get: "/{channel_id}/messages"};
+  }
+  rpc Create(schema.request.CreateMessageRequest) returns (schema.response.CreateMessageResponse) {
+    option (google.api.http) = {
+      post: "/{channel_id}/messages"
+      body: "*"
+    };
+  }
+  rpc CreateReply(schema.request.CreateReplyMessageRequest) returns (schema.response.CreateReplyMessageResponse) {
+    option (google.api.http) = {
+      post: "/{channel_id}/messages/{id}/reply"
+      body: "*"
+    };
+  }
+  rpc Update(schema.request.UpdateMessageRequest) returns (schema.response.UpdateMessageResponse) {
+    option (google.api.http) = {
+      put: "/{channel_id}/messages/{id}"
+      body: "*"
+    };
+  }
+  rpc Delete(schema.request.DeleteMessageRequest) returns (schema.response.DeleteMessageResponse) {
+    option (google.api.http) = {delete: "/{channel_id}/messages/{id}"};
+  }
 }
 
 service UserService {
-    rpc Me(schema.request.UserMeRequest) returns (schema.response.UserMeResponse) {
-      option (google.api.http) = {
-        get : "/users/me"
-      };
-    }
+  rpc Me(schema.request.UserMeRequest) returns (schema.response.UserMeResponse) {
+    option (google.api.http) = {get: "/users/me"};
+  }
 }
 
 service NotifyService {
-    rpc Notify(schema.request.NotifyRequest) returns (schema.response.NotifyResponse) {
-      option (google.api.http) = {
-          post : "/ws/notify"
-          body : "*"
-      };
+  rpc Notify(schema.request.NotifyRequest) returns (schema.response.NotifyResponse) {
+    option (google.api.http) = {
+      post: "/ws/notify"
+      body: "*"
+    };
   }
 }

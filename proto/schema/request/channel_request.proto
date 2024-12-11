@@ -7,31 +7,31 @@ option go_package = "schema/request";
 message GetAllChannelsRequest {}
 
 message GetChannelByIDRequest {
-    string id = 1;
+  string id = 1;
 }
 
 message JoinChannelRequest {
-    string id = 1;
+  string id = 1;
 }
 
 message CreateChannelRequest {
-    string name = 1;
+  string name = 1;
 }
 
 message CreateChildChannelRequest {
-    string id = 1;
-    string name = 2;
+  string id = 1;
+  string name = 2;
 }
 
 message UpdateChannelRequest {
-    string id = 1;
-    string name = 2;
+  string id = 1;
+  string name = 2;
 }
 
 message DeleteChannelRequest {
-    string id = 1;
+  string id = 1;
 }
 
 message LeaveChannelRequest {
-    string id = 1;
+  string id = 1;
 }

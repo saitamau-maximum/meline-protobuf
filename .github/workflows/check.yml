@@ -1,0 +1,37 @@
+name: Check
+
+on: pull_request
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: "8.12.0"
+      - name: Setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20.10"
+          cache: "pnpm"
+          cache-dependency-path: "./pnpm-lock.yaml"
+      - name: Install dependencies
+        run: pnpm install
+      - name: Setup protoc-gen-openapiv2
+        run: |
+          curl -sSL https://github.com/grpc-ecosystem/grpc-gateway/releases/download/v2.23.0/protoc-gen-openapiv2-v2.23.0-linux-x86_64 -o protoc-gen-openapiv2
+          chmod +x protoc-gen-openapiv2
+          mv protoc-gen-openapiv2 /usr/local/bin
+      - name: Setup protoc-gen-go
+        run: |
+          curl -sSL https://github.com/protocolbuffers/protobuf-go/releases/download/v1.35.2/protoc-gen-go.v1.35.2.linux.amd64.tar.gz -o protoc-gen-go.tar.gz
+          tar -xvf protoc-gen-go.tar.gz
+          chmod +x protoc-gen-go
+          mv protoc-gen-go /usr/local/bin
+      - name: Check
+        run: pnpm check

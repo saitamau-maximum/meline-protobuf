@@ -5,27 +5,27 @@ package schema.request;
 option go_package = "schema/request";
 
 message GetByChannelIDRequest {
-    string channel_id = 1;
+  string channel_id = 1;
 }
 
 message CreateMessageRequest {
-    string channel_id = 1;
-    string content = 2;
+  string channel_id = 1;
+  string content = 2;
 }
 
 message CreateReplyMessageRequest {
-    string channel_id = 1;
-    string id = 2;
-    string content = 3;
+  string channel_id = 1;
+  string id = 2;
+  string content = 3;
 }
 
 message UpdateMessageRequest {
-    string channel_id = 1;
-    string id = 2;
-    string content = 3;
+  string channel_id = 1;
+  string id = 2;
+  string content = 3;
 }
 
 message DeleteMessageRequest {
-    string channel_id = 1;
-    string id = 2;
+  string channel_id = 1;
+  string id = 2;
 }
