@@ -2,21 +2,21 @@ syntax = "proto3";
 
 package base;
 
-option go_package = "base";
-
 import "base/user_base.proto";
 
+option go_package = "base";
+
 message Message {
-    string id = 1;
-    User user = 2;
-    string content = 3;
-    ReplyToMessage reply_to_message = 4;
-    string created_at = 5;
-    string updated_at = 6;
+  string id = 1;
+  User user = 2;
+  string content = 3;
+  ReplyToMessage reply_to_message = 4;
+  string created_at = 5;
+  string updated_at = 6;
 }
 
 message ReplyToMessage {
-    string id = 1;
-    User user = 2;
-    string content = 3;
+  string id = 1;
+  User user = 2;
+  string content = 3;
 }
