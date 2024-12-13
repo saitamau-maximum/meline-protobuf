@@ -4,8 +4,6 @@ package schema.request;
 
 option go_package = "schema/request";
 
-message GetAllChannelsRequest {}
-
 message GetChannelByIDRequest {
   string id = 1;
 }
