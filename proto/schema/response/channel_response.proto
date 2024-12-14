@@ -13,15 +13,3 @@ message GetAllChannelsResponse {
 message GetChannelByIDResponse {
   base.ChannelDetail channel = 1;
 }
-
-message JoinChannelResponse {}
-
-message CreateChannelResponse {}
-
-message CreateChildChannelResponse {}
-
-message UpdateChannelResponse {}
-
-message DeleteChannelResponse {}
-
-message LeaveChannelResponse {}
