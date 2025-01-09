@@ -13,6 +13,7 @@ import "schema/request/user_request.proto";
 import "schema/response/user_response.proto";
 import "schema/request/notify_request.proto";
 import "schema/response/notify_response.proto";
+import "schema/request/websocket_api.proto";
 
 service ChannelService {
     rpc GetAllChannels (schema.request.GetAllChannelsRequest) returns (schema.response.GetAllChannelsResponse) {
@@ -107,5 +108,10 @@ service NotifyService {
           post : "/ws/notify"
           body : "*"
       };
-  }
+    }
+    rpc GetByID(schema.request.GetByIDMessageRequest) returns (schema.response.GetByIDMessageResponse) {
+        option (google.api.http) = {
+            get : "/ws/{channel_id}"
+        };
+    }
 }
