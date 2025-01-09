@@ -1,7 +1,0 @@
-syntax = "proto3";
-
-package schema.request;
-
-option go_package = "schema/request";
-
-message NotifyRequest {}

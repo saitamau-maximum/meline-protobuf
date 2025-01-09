@@ -5,7 +5,7 @@ package base;
 option go_package = "base";
 
 message User {
-    string id = 1;
-    string name = 2;
-    string image_url = 3;
+  string id = 1;
+  string name = 2;
+  string image_url = 3;
 }
