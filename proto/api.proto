@@ -59,13 +59,13 @@ service MessageService {
   rpc GetByChannelID(schema.request.GetByChannelIDRequest) returns (schema.response.GetByChannelIDResponse) {
     option (google.api.http) = {get: "/{channel_id}/messages"};
   }
-  rpc Create(schema.request.CreateMessageRequest) returns (google.protobuf.Empty) {
+  rpc Create(schema.request.CreateMessageRequest) returns (schema.response.CreateMessageResponse) {
     option (google.api.http) = {
       post: "/{channel_id}/messages"
       body: "*"
     };
   }
-  rpc CreateReply(schema.request.CreateReplyMessageRequest) returns (google.protobuf.Empty) {
+  rpc CreateReply(schema.request.CreateReplyMessageRequest) returns (schema.response.CreateReplyResponse) {
     option (google.api.http) = {
       post: "/{channel_id}/messages/{id}/reply"
       body: "*"

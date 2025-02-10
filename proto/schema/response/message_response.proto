@@ -9,3 +9,13 @@ option go_package = "schema/response";
 message GetByChannelIDResponse {
   repeated base.Message messages = 1;
 }
+
+message CreateMessageResponse {
+  base.Message message = 1;
+  string channel_id = 2;
+}
+
+message CreateReplyResponse {
+  base.Message message = 1;
+  string channel_id = 2;
+}
