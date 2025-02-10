@@ -9,8 +9,8 @@ import "schema/request/message_request.proto";
 import "schema/response/channel_response.proto";
 import "schema/response/message_response.proto";
 import "schema/response/notify_response.proto";
+import "schema/request/websocket_api.proto";
 import "schema/response/user_response.proto";
-
 option go_package = "proto";
 
 service ChannelService {
@@ -89,10 +89,15 @@ service UserService {
 }
 
 service NotifyService {
-  rpc Notify(google.protobuf.Empty) returns (schema.response.NotifyResponse) {
+  rpc Notify(schema.request.NotifyRequest) returns (schema.response.NotifyResponse) {
     option (google.api.http) = {
-      post: "/ws/notify"
-      body: "*"
+        post : "/ws/notify"
+        body : "*"
     };
+  }
+  rpc GetByID(schema.request.GetByIDMessageRequest) returns (schema.response.GetByIDMessageResponse) {
+      option (google.api.http) = {
+        get : "/ws/{channel_id}"
+      };
   }
 }
