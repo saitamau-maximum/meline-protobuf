@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package schema.response;
+
+option go_package = "schema/response";
+
+message StoreSubscriptionResponse {
+  string key = 1;
+}
+
+message GetPublicKeyResponse {
+  string public_key = 1;
+}
