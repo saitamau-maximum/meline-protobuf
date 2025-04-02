@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package schema.request;
+
+option go_package = "schema/request";
+
+message StoreSubscriptionRequest {
+  string endpoint = 1;
+  string p256dh = 2;
+  string auth = 3;
+}
+
+message DeleteSubscriptionRequest {
+  string key = 1;
+}

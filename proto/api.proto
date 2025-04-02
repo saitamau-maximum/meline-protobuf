@@ -6,10 +6,12 @@ import "google/api/annotations.proto";
 import "google/protobuf/empty.proto";
 import "schema/request/channel_request.proto";
 import "schema/request/message_request.proto";
+import "schema/request/webpush_request.proto";
 import "schema/response/channel_response.proto";
 import "schema/response/message_response.proto";
 import "schema/response/notify_response.proto";
 import "schema/response/user_response.proto";
+import "schema/response/webpush_response.proto";
 
 option go_package = "proto";
 
@@ -94,5 +96,20 @@ service NotifyService {
       post: "/ws/notify"
       body: "*"
     };
+  }
+}
+
+service WebpushService {
+  rpc StoreSubscription(schema.request.StoreSubscriptionRequest) returns (schema.response.StoreSubscriptionResponse) {
+    option (google.api.http) = {
+      post: "/webpush/subscription"
+      body: "*"
+    };
+  }
+  rpc DeleteSubscription(schema.request.DeleteSubscriptionRequest) returns (google.protobuf.Empty) {
+    option (google.api.http) = {delete: "/webpush/subscription/{key}"};
+  }
+  rpc GetPublicKey(google.protobuf.Empty) returns (schema.response.GetPublicKeyResponse) {
+    option (google.api.http) = {get: "/webpush/publickey"};
   }
 }
