@@ -100,7 +100,7 @@ service NotifyService {
 }
 
 service WebpushService {
-  rpc StoreSubscription(schema.request.StoreSubscriptionRequest) returns (schema.response.StoreSubscriptionResponse) {
+  rpc StoreSubscription(schema.request.StoreSubscriptionRequest) returns (google.protobuf.Empty) {
     option (google.api.http) = {
       post: "/webpush/subscription"
       body: "*"
